@@ -60,51 +60,51 @@
 
 .services__pictures {
     .container {
-
-    }
-
-    .cards {
-        &__item {
-
-            .cards__container {
-                max-width: 460px;
-                &:hover {
-                    img {
-                        scale: 1.25;
-                        transition: .5s ease;
-                    }
+        .cards {
+            &__item {
+    
+                .cards__container {
+                    max-width: 460px;
+                    &:hover {
+                        img {
+                            scale: 1.25;
+                            transition: .5s ease;
+                        }
+                        
+                        h3 {
+                            color: $clr-primary;
+                            transition: .2s ease;
+                        }
+    
+                    } 
+                }
+                .img__container {
+                    position:relative;
+                    overflow: hidden;
                     
-                    h3 {
-                        color: $clr-primary;
-                        transition: .2s ease;
-                    }
-
-                } 
-            }
-            .img__container {
-                position:relative;
-                overflow: hidden;
+                }
+    
+                img {
+                    max-width: 460px;
+                    scale: 1;
+                    transition: .5s ease;
+    
+                    
+                    
+                }
+    
+                .text__container {
+                    margin: 2rem 0;
+                }
+    
                 
             }
-
-            img {
-                max-width: 460px;
-                scale: 1;
-                transition: .5s ease;
-
-                
-                
-            }
-
-            .text__container {
-                margin: 2rem 0;
-            }
-
-            
+    
+        
         }
+    }
 
     
-    }
 
     @include mediaQuery($break-md) {
         .cards {

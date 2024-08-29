@@ -87,27 +87,27 @@ body {
   margin: 1rem 0 2rem;
 }
 
-.services__pictures .cards__item .cards__container {
+.services__pictures .container .cards__item .cards__container {
   max-width: 460px;
 }
-.services__pictures .cards__item .cards__container:hover img {
+.services__pictures .container .cards__item .cards__container:hover img {
   scale: 1.25;
   transition: 0.5s ease;
 }
-.services__pictures .cards__item .cards__container:hover h3 {
+.services__pictures .container .cards__item .cards__container:hover h3 {
   color: #4344f7;
   transition: 0.2s ease;
 }
-.services__pictures .cards__item .img__container {
+.services__pictures .container .cards__item .img__container {
   position: relative;
   overflow: hidden;
 }
-.services__pictures .cards__item img {
+.services__pictures .container .cards__item img {
   max-width: 460px;
   scale: 1;
   transition: 0.5s ease;
 }
-.services__pictures .cards__item .text__container {
+.services__pictures .container .cards__item .text__container {
   margin: 2rem 0;
 }
 @media screen and (min-width: 760px) {
