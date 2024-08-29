@@ -1,0 +1,120 @@
+.header__services {
+    .about__img__container {
+        position: absolute;
+        z-index: -1;
+        max-width: 483px;
+        overflow: hidden;
+        filter: brightness(30%) grayscale(50%);
+        
+    }
+
+    .about__container {
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        color: $clr-light;
+        align-items: center;
+        justify-content: center;
+        height: 45vh;
+
+        h1 {
+            font-size:3rem;
+        }
+    }
+
+    @include mediaQuery($break-md) {
+        .about__img__container {
+            max-width: 100%;
+        }
+    }
+}
+
+.ispageti {
+    text-align: center;
+    padding: 1rem 0 5rem;
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    span {
+        width: 10rem;
+        height: 1px;
+        display: block;
+        background-color: $clr-primary;
+        margin: 1rem 0 2rem;
+
+    }
+}
+
+.services__pictures {
+    .container {
+        .cards {
+            &__item {
+    
+                .cards__container {
+                    max-width: 460px;
+                    &:hover {
+                        img {
+                            scale: 1.25;
+                            transition: .5s ease;
+                        }
+                        
+                        h3 {
+                            color: $clr-primary;
+                            transition: .2s ease;
+                        }
+    
+                    } 
+                }
+                .img__container {
+                    position:relative;
+                    overflow: hidden;
+                    
+                }
+    
+                img {
+                    max-width: 460px;
+                    scale: 1;
+                    transition: .5s ease;
+    
+                    
+                    
+                }
+    
+                .text__container {
+                    margin: 2rem 0;
+                }
+    
+                
+            }
+    
+        
+        }
+    }
+
+    
+
+    @include mediaQuery($break-md) {
+        .cards {
+            &__item {
+                display: flex;
+                
+                .cards__container {
+                    padding: 1.5rem;
+                }
+            }
+        }
+    }
+}
