@@ -1,11 +1,39 @@
 .header {
     width: 100%;
-    position: fixed;
+    position: absolute;
+    z-index: 1;
+    border-bottom: 1px solid $clr-greyfont;
+    
+
 
     &.blue {
-        
         background-color: $clr-light;
         animation: slide .2s forwards;
+        position: fixed;
+
+        .link {
+            li {
+                color: $clr-dark !important;
+
+                a {
+                    color: $clr-dark !important;
+                }
+            }
+
+            
+        }
+
+        .bilog {
+            i {
+                color: $clr-dark !important;
+            }
+        }
+
+        .burgir {
+            span {
+                background-color: $clr-dark;
+            }
+        }
 
         @keyframes slide {
             0% {
@@ -18,6 +46,10 @@
             }
         
         }
+
+        
+
+
     }
 
     
@@ -30,7 +62,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color: $clr-light;
+        background: transparent;
     }
 
     
@@ -88,35 +120,6 @@
                 display: flex;
                 justify-content: space-between;
                 margin: 1.5rem;
-                
-                // .link_burgir {
-                //     span {
-                //         width: 2.5rem;
-                //         height: 0.3rem;
-                //         background-color: $clr-dark;
-                //         display: block;
-                //         border-radius: 5rem;
-                //         transition: 0.5s ease-in-out;
-                        
-                //         &:nth-child(2) {
-                //             margin: 0.5rem 0;
-                //         }
-                //     }
-                //     &.open {
-                //         span {
-                //             &:first-child {
-                //                 transform: translate(0, 10px) rotate(225deg);
-                //             }
-                //             &:nth-child(2) {
-                //                opacity: 0;
-                //             }
-                //             &:last-child {
-                //                 transform: translate(0, -6px) rotate(-225deg);
-                //             }
-                //         }
-                //     }
-                // }
-               
             }
 
 
@@ -126,12 +129,18 @@
                 display: flex;
                 flex-direction: column;
 
+                .sub-nav {
+                    display: none;
+                }
                 li {
                     margin: 1rem 2rem;
                     font-size: 2rem;
                     display: flex;
-                    justify-content: space-between;
+                    // flex-direction: column;
                     position: relative;
+
+                    
+                    
                 }
 
                 li a {
@@ -156,13 +165,25 @@
                 }
 
                 .fa-solid.fa-circle-plus {
-                    margin-left: auto;
+                    position: absolute;
+                    right: 0;
                     
                     &:hover {
                         color: $clr-primary;
                         transition: .2s ease;
                     }
+
+                    &.open {
+                        .sub-nav {
+                            display: none;
+                            transition: .5s ease;
+                        }
+                    }
+
+
                 }
+
+                
 
                 .fa-solid.fa-circle-minus {
                     display: none;
@@ -174,6 +195,7 @@
                     color: $clr-primary;
                     font-size: 1.5rem;
                     margin: 2rem;
+                    
                 }
             }
 
@@ -196,6 +218,21 @@
             scale: 2;
             margin: 0 3rem;
             
+            a {
+                color: $clr-light;
+
+                &:hover {
+                    :nth-of-type(1) {
+                        color: $clr-primary;
+                        transition: 0.5s ease;
+                    }
+    
+                    :nth-of-type(2) {
+                        color: $clr-primary;
+                        
+                    }
+                }
+            }
         }
     }
 
@@ -203,32 +240,35 @@
         span {
             width: 2.5rem;
             height: 0.3rem;
-            background-color: $clr-dark;
+            background-color: $clr-light;
             display: block;
             border-radius: 5rem;
             transition: 0.5s ease-in-out;
             
+            
             &:nth-child(2) {
-                margin: 0.5rem 0;
+                margin: .5rem 0;
             }
         }
         &.open {
             span {
+                background-color: $clr-dark;
                 &:first-child {
-                    transform: translate(0, 10px) rotate(225deg);
+                    transform: translate(0, 10px) rotate(45deg);
                 }
                 &:nth-child(2) {
-                   opacity: 0;
+                    opacity: 0 !important;
                 }
                 &:last-child {
-                    transform: translate(0, -6px) rotate(-225deg);
+                    transform: translate(0, -6px) rotate(-45deg);
                 }
-            }
-            animation: blink 0.7s forwards;
+                
+                animation: blink 0.7s forwards;
 
             @keyframes blink {
                 0% { 
                     opacity: 1;
+                    
                   }
                 50% { 
                     opacity: 0;
@@ -236,9 +276,16 @@
 
                 100% {
                     opacity: 1;
+                    
                 }
                 
+                
             }
+
+            
+
+            }
+            
 
             z-index: 4;
 
@@ -250,7 +297,9 @@
 
     @include mediaQuery($break-md) {
         .header {
-            position: absolute;
+            position: fixed;
+            
+            
         }
         .kamote {
             display: none;
@@ -258,7 +307,7 @@
         .container {            
             display: flex;
             padding: 1rem;
-            background-color: transparent;
+            
             
             img {
                 width: 9%;
@@ -292,20 +341,83 @@
 
                         ul {
                             display: unset;
-                            li {
-                                display: unset;
-                                font-size: 1.7rem;
+                            display: flex;
+                            flex-direction: row;
+                            color: $clr-greyfont;
+                            transition: 0.5s ease;
+                        
+                            .sub-nav {
+                                position: absolute;
+                                display: none; 
                                 
-
-                                .fa-solid.fa-chevron-down {
-                                    display: unset;
-                                    margin-left: .5rem;
+                                top: 100%;
+                                width: 170px;
+                                height: 150px;
+                                padding: 25px .5rem;
+                        
+                                h3 {
+                                    font-size: 2;
+                                    color: $clr-dark;
+                                    margin: 0 0 2rem 0;
                                 }
 
+                                &:hover {
+                                    display: block;
+                                }
+                        
+                                a {
+                                   
+                                    background-color: transparent;
+                                    font-size: 1.6rem;
+                                    color: $clr-greyfont;
+                                    font-weight: 900;
+                        
+                                    &:hover {
+                                        color: $clr-primary !important;
+                                    }   
+                                }
+
+                                .sub-nav-container {
+                                    background-color: $clr-light;
+                                    margin: 0 -5px;
+                                    padding: 1rem;
+                                    height: 150px;
+                                }
+                            }
+                        
+                            li {
+                                display: unset;
+                                display: flex;
+                                font-size: 1.4rem;
+                                color: $clr-light;
+                        
+                                &:hover .sub-nav {
+                                    display: block;
+                                    transition: 100s ease-out;
+                                }
+                        
+                                a {
+                                    color: $clr-light;
+                                    z-index: 3;
+                        
+                                    &:hover {
+                                        color: $clr-greyfont;
+                                        transition: 0.5s ease;
+                                    }
+                                }
+                        
+                                .fa-solid.fa-chevron-down {
+                                    display: unset;
+                                    margin-left: 0.5rem;
+                                }
+                        
                                 .fa-solid.fa-circle-plus {
                                     display: none;
                                 }
+
+                                
                             }
+                        
                         }
                     }
 
@@ -313,10 +425,12 @@
                         display: none;
                     }
 
+                    
                 }
             }
         }
         
     }
+
 }
 
